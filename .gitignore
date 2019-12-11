@@ -1,0 +1,5 @@
+# Project exclude paths
+/ex00/target/
+/jex00/target/
+/ex00/.settings/
+/jex00/.settings/
