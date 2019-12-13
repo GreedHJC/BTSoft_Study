@@ -12,12 +12,12 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	}
 
 	@Override
-	protected Class<?>[] getServletConfigClasses() {
+	protected Class<?>[] getServletConfigClasses() {	//ServletConfig 클래스를 정상적으로 동작하기 위해 ServletConfig.class를 추가
 		return new Class[] {ServletConfig.class};
 	}
 
 	@Override
-	protected String[] getServletMappings() {
+	protected String[] getServletMappings() {		//스프링MVC의 기본 경로도 '/'로 변경
 		return new String[]{"/"};
 	}
 

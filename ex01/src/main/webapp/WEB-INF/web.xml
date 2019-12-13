@@ -5,8 +5,8 @@
 
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-name>contextConfigLocation</param-name>	<!--가장 먼저 구동-->
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>		<!--root-context.xml이 처리되면 파일에있는 객체(bean) 설정이 동작되고 객체들은 스프링의 영역(webApplicationContext)안에 생성-->
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -17,10 +17,10 @@
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>	<!--스프링 MVC의 구조에서 가장 핵심적인 역할을 하는 클래스-->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value> <!--내부적인 웹관련 처리 준비작업을 진행할때 사용-->
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
