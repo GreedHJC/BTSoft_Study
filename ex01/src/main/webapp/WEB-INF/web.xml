@@ -15,12 +15,14 @@
 	</listener>
 
 	<!-- Processes application requests -->
+	<!-- 사용자의 Request는 Front-Controller인 DispatcherServler을 통해서 처리, 모든 Request를 DispatcherServler가 받음-->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>	<!--스프링 MVC의 구조에서 가장 핵심적인 역할을 하는 클래스-->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value> <!--내부적인 웹관련 처리 준비작업을 진행할때 사용-->
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value> <!--내부적인 웹관련 처리 준비작업을 진행할때 사용
+			-->
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

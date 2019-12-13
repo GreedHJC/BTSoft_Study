@@ -1,5 +1,4 @@
 # Project exclude paths
-
 target
 build
 bin
@@ -15,3 +14,6 @@ bin
 .svn
 *.class
 *.bak
+
+
+/ex01/memonote/
