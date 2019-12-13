@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jdt.core
+3823370491.index
+3812875719.index
+2487545169.index
+1080510486.index
+3247312595.index
+3062447685.index
+2545858927.index
+8001504.index
+671461136.index

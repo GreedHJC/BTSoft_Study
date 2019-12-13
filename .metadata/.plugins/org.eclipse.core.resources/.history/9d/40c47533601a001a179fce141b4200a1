@@ -1,0 +1,5 @@
+package kr.btsoft.config;
+
+public class WebConfig {
+
+}

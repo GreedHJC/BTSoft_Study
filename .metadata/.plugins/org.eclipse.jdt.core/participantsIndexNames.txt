@@ -1,0 +1,13 @@
+INDEX VERSION 1.131
+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\470618975.index
+\ex01\src\main\java
+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3432795853.index
+\ex01\src\main\java
+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3012140731.index
+\ex01\src\main\java
+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3178133098.index
+\ex00\src\main\java
+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1487874865.index
+\jex00\src\main\java
+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1447609312.index
+\jex01\src\main\java

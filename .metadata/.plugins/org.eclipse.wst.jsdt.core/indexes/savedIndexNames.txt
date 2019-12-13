@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+C:\Users\Qweqw\dev\(5)Study\CodeSpringWeb\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3062447685.index
+3247312595.index
+2487545169.index
+3812875719.index
