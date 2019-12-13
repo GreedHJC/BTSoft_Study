@@ -1,10 +1,4 @@
 # Project exclude paths
-/ex00/target/
-/jex00/target/
-/ex00/.settings/
-/jex00/.settings/
-/.metadata/
-/jex01/.settings/
 
 target
 build
@@ -21,5 +15,3 @@ bin
 .svn
 *.class
 *.bak
-
-/jex01/.settings/

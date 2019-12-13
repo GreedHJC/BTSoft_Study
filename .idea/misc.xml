@@ -13,7 +13,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/jex00/pom.xml" />
         <option value="$PROJECT_DIR$/ex01/pom.xml" />
         <option value="$PROJECT_DIR$/jex01/pom.xml" />
       </list>
