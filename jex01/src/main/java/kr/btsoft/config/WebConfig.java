@@ -2,6 +2,8 @@ package kr.btsoft.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.ServletRegistration;
+
 // 3개의 추상 메서드를 오버라이드 하도록 작성.
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -21,4 +23,8 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 		return new String[]{"/"};
 	}
 
+	@Override
+	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+		registration.setInitParameter("throwExceptionIfNoHandlerFound","true");
+	}
 }
