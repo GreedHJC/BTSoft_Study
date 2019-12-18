@@ -3,7 +3,6 @@
 <mapper namespace="kr.btsoft.mapper.BoardMapper">
 
 <!--
-
     <sql id="criteria">
         <trim prefix="(" suffix=") AND " prefixOverrides="OR">
             <foreach item='type' collection="typeArr">
@@ -24,7 +23,6 @@
         </trim>
     </sql>
 -->
-
 
     <select id="getList" resultType="kr.btsoft.domain.BoardVO">
         <![CDATA[
