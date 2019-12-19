@@ -25,7 +25,7 @@ $.fn.serializeObject = function () {
     }
     $.each(this.serializeArray(), extend)
     return result
-}
+} 
 
 
 function test(url, params, type, callback) {
