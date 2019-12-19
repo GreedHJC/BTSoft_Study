@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ddd</title>
+<title>로그인</title>
 <link rel="stylesheet" href="resources/css/common.css">
 </head>
 <body>
