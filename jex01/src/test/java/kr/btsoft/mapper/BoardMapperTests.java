@@ -1,6 +1,7 @@
 package kr.btsoft.mapper;
 
 import kr.btsoft.domain.BoardVO;
+import kr.btsoft.domain.Criteria;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.junit.Test;
@@ -8,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
     // Test for Controller
@@ -83,4 +86,33 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
         log.info("UPDATE COUNT: " + count);
 
     }
+
+    @Test
+    public void testPaging() {
+
+        Criteria cri = new Criteria();
+
+        //10개씩 3페이지
+        cri.setPageNum(3);
+        cri.setAmount(10);
+
+
+        List<BoardVO> list = mapper.getListWithPaging(cri);
+
+        list.forEach(board -> log.info(board));
+
+    }
+
+//    @Test
+//    public void testSearch() {
+//
+//        Criteria cri = new Criteria();
+//        cri.setKeyword("키워드");
+//        cri.setType("TCW");
+//
+//        List<BoardVO> list = mapper.getListWithPaging(cri);
+//
+//        list.forEach(board -> log.info(board));
+//    }
+
 }

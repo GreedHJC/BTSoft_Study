@@ -45,12 +45,9 @@
 
                     <c:forEach items="${list}" var="board">
                         <tr>
-                            <td><c:out value="${board.bno}" /></td>
-                                <%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
-
                             <td>
                                 <a class='move' href='<c:out value="${board.bno}"/>'>
-                                <c:out value="${board.title}" />
+                                    <c:out value="${board.title}" />
                                 </a>
                             </td>
 
@@ -98,20 +95,6 @@
                 <div class='pull-right'>
                     <ul class="pagination">
 
-                        <%--             <c:if test="${pageMaker.prev}">
-              <li class="paginate_button previous"><a href="#">Previous</a>
-              </li>
-            </c:if>
-
-            <c:forEach var="num" begin="${pageMaker.startPage}"
-              end="${pageMaker.endPage}">
-              <li class="paginate_button"><a href="#">${num}</a></li>
-            </c:forEach>
-
-            <c:if test="${pageMaker.next}">
-              <li class="paginate_button next"><a href="#">Next</a></li>
-            </c:if> --%>
-
                         <c:if test="${pageMaker.prev}">
                             <li class="paginate_button previous"><a
                                     href="${pageMaker.startPage -1}">Previous</a></li>
@@ -138,13 +121,8 @@
             <form id='actionForm' action="/board/list" method='get'>
                 <input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
                 <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
-
-                <input type='hidden' name='type'
-                       value='<c:out value="${ pageMaker.cri.type }"/>'> <input
-                    type='hidden' name='keyword'
-                    value='<c:out value="${ pageMaker.cri.keyword }"/>'>
-
-
+                <input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
+                <input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'>
             </form>
 
 
@@ -212,32 +190,18 @@
 
     var actionForm = $("#actionForm");
 
-    $(".paginate_button a").on(
-        "click",
-        function(e) {
-
+    $(".paginate_button a").on("click", function(e) {
             e.preventDefault();
-
             console.log('click');
-
-            actionForm.find("input[name='pageNum']")
-                .val($(this).attr("href"));
+            actionForm.find("input[name='pageNum']").val($(this).attr("href"));
             actionForm.submit();
         });
 
-    $(".move")
-        .on(
-            "click",
-            function(e) {
-
+    $(".move").on("click", function(e) {
                 e.preventDefault();
-                actionForm
-                    .append("<input type='hidden' name='bno' value='"
-                        + $(this).attr(
-                            "href")
-                        + "'>");
-                actionForm.attr("action",
-                    "/board/get");
+                actionForm.append("<input type='hidden' name='bno' value='"
+                        + $(this).attr("href")+ "'>");
+                actionForm.attr("action", "/board/get");
                 actionForm.submit();
 
             });
