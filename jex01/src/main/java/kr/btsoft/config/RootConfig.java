@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,7 @@ import java.security.GeneralSecurityException;
 //클래스의 인스턴스를 이용해 설정파일 대신
 @EnableTransactionManagement
 @Configuration
+@MapperScan(basePackages = "kr.btsoft.mapper")
 public class RootConfig {
 
     @Autowired
@@ -54,7 +56,6 @@ public class RootConfig {
         SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory());
         return sqlSessionTemplate;
     }
-
 
     @Bean
     public PlatformTransactionManager transactionManager() throws URISyntaxException, GeneralSecurityException, ParseException, IOException {

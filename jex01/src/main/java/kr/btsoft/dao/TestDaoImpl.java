@@ -1,9 +1,8 @@
 package kr.btsoft.dao;
 
 
-import kr.btsoft.vo.TestVo;
 import kr.btsoft.mapper.TestMapper;
-import org.apache.ibatis.session.SqlSession;
+import kr.btsoft.vo.TestVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,12 +12,11 @@ import java.util.Map;
 public class TestDaoImpl implements TestDao {
 
     @Autowired
-    private SqlSession sqlSession;
+    private TestMapper mapper;
 
     @Override
     public String selectNow() {
 
-        TestMapper mapper = sqlSession.getMapper(TestMapper.class);
         String test = mapper.selectNow();
 
         return test;
@@ -27,7 +25,6 @@ public class TestDaoImpl implements TestDao {
     @Override
     public int insertSignup(TestVo testVo) {
 
-        TestMapper mapper = sqlSession.getMapper(TestMapper.class);
         int temp = mapper.insertSignup(testVo);
 
         return temp;
@@ -36,7 +33,6 @@ public class TestDaoImpl implements TestDao {
     @Override
     public int insertAuth(Map auth) {
 
-        TestMapper mapper = sqlSession.getMapper(TestMapper.class);
         int temp = mapper.insertAuth(auth);
 
         return temp;

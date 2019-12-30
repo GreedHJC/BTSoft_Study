@@ -1,11 +1,10 @@
 package kr.btsoft.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.*;
-import java.util.EnumSet;
+import javax.servlet.Filter;
+import javax.servlet.ServletRegistration;
 
 // 3개의 추상 메서드를 오버라이드 하도록 작성.
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {

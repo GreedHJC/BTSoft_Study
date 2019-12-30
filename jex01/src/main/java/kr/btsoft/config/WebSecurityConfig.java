@@ -1,8 +1,8 @@
 package kr.btsoft.config;
 
+import kr.btsoft.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -20,15 +20,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired PasswordEncoder passwordEncoder;
 
+    @Autowired
+    CustomUserDetailsService customUserDetailsService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         //Database 상엔 authority 값이 "ROLE_ADMIN", "ROLE_USER" 형식으로 INSERT.
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .passwordEncoder(passwordEncoder)
-                .usersByUsernameQuery("select user_id as username, user_pw as password, enabled from user_info where user_id = ?")
-                .authoritiesByUsernameQuery("select user_id as username, authority from authorities where user_id = ?");
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .passwordEncoder(passwordEncoder)
+//                .usersByUsernameQuery("select user_id as username, user_pw as password, enabled from user_info where user_id = ?")
+//                .authoritiesByUsernameQuery("select user_id as username, authority from authorities where user_id = ?");
+        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
     //Spring Security 5 에선 Role 이름을 "ADMIN", "USER" 형식으로 해야 인증이 완료됨.
@@ -58,5 +62,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CustomUserDetailsService customUserDetailsService() {
+        return new CustomUserDetailsService();
     }
 }

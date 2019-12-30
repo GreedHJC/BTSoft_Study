@@ -3,7 +3,9 @@ package kr.btsoft.vo;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.security.core.GrantedAuthority;
 
+import java.util.Collection;
 import java.util.Date;
 
 @Setter
@@ -24,6 +26,7 @@ public class TestVo {
     private String grade;
     private String depart;
     private char enabled;
+    private Collection<? extends GrantedAuthority> authorities;
 
 }
 

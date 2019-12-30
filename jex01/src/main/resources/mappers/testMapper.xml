@@ -15,4 +15,13 @@
         insert into AUTHORITIES values (#{userId}, #{officeNum}, #{authority})
     </insert>
 
-</mapper>
+    <select id="readUser" parameterType="String" resultType="kr.btsoft.vo.TestVo">
+        <![CDATA[
+              SELECT * FROM USER_INFO WHERE USERID = #{username}
+        ]]>
+            </select>
+            <select id="readAuthority" parameterType="String" resultType="String">
+                SELECT AUTHORITY FROM AUTHORITIES WHERE USERID = #{username}
+            </select>
+
+        </mapper>
