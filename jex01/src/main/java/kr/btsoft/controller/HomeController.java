@@ -1,14 +1,16 @@
 package kr.btsoft.controller;
 
-import kr.btsoft.vo.TestVo;
 import kr.btsoft.service.TestService;
+import kr.btsoft.vo.TestVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
 import java.util.Locale;
 
 /**
@@ -45,4 +47,17 @@ public class HomeController {
 		return "redirect:/login";
 
 	}
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Principal principal, Model model) {
+
+		if(principal != null) {
+
+			model.addAttribute("logged", principal.getName());
+
+		}
+
+		return "home";
+	}
+
 }
