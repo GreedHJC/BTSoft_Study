@@ -47,10 +47,13 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Principal principal, Model model) {
 
-		model.addAttribute("logged", principal.getName());
+		if(principal != null) {
+
+			model.addAttribute("logged", principal.getName());
+		}
 
 		return "home";
 	}

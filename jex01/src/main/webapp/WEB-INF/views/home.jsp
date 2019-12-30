@@ -242,7 +242,9 @@
         </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><span class="login-infor">${logged}님 반갑습니다.</span></li>
+                <c:if test ="${not empty logged}">
+                    <li><span class="login-infor">${logged}님 반갑습니다.</span></li>
+                </c:if>
                 <li><a class="logout" href="logout">Logout</a></li>
 
             </ul>
