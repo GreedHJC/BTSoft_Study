@@ -3484,3 +3484,13 @@ ul.chat-available-user li a:hover {
 #copyrights a {
   color: #fff;
 }
+
+
+/* login infor */
+.login-infor {
+    margin-top: 20px;
+    display: block;
+    position: relative;
+    margin-right: 5px;
+    color: ghostwhite;
+}

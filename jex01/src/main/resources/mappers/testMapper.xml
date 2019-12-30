@@ -6,8 +6,13 @@
         SELECT sysdate from DUAL
     </select>
 
-    <insert id="insertSignup" parameterType="kr.btsoft.dto.TestDto">
-        insert into USER_INFO values (INDEX_NO.nextval, #{officeNum}, #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userAddr}, #{userHp}, #{officeTel}, sysdate, sysdate, #{grade}, #{depart}, #{enabled})
+    <!-- jdbcType 지정은 null 값이 넘어 올 경우 허용하여 insert 함  -->
+    <insert id="insertSignup" parameterType="kr.btsoft.vo.TestVo">
+        insert into USER_INFO values (INDEX_NO_SEQ.nextval, #{officeNum}, #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userAddr, jdbcType=VARCHAR}, #{userHp}, #{officeTel}, sysdate, sysdate, #{grade, jdbcType=VARCHAR}, #{depart, jdbcType=VARCHAR}, #{enabled})
+    </insert>
+
+    <insert id="insertAuth" parameterType="map">
+        insert into AUTHORITIES values (#{userId}, #{officeNum}, #{authority})
     </insert>
 
 </mapper>

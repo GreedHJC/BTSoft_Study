@@ -1,4 +1,4 @@
-package kr.btsoft.dto;
+package kr.btsoft.vo;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,8 +9,9 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-public class TestDto {
+public class TestVo {
 
+    private String officeNum;
     private String userId;
     private String userPw;
     private String userName;
@@ -22,6 +23,7 @@ public class TestDto {
     private Date outDay;
     private String grade;
     private String depart;
+    private char enabled;
 
 }
 

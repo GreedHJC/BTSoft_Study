@@ -242,7 +242,9 @@
         </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><span class="login-infor">${logged}님 반갑습니다.</span></li>
+                <li><a class="logout" href="logout">Logout</a></li>
+
             </ul>
         </div>
     </header>
