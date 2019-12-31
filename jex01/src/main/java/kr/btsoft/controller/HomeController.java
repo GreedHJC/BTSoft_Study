@@ -1,10 +1,12 @@
 package kr.btsoft.controller;
 
+import kr.btsoft.dto.TestDto;
 import kr.btsoft.service.TestService;
 import kr.btsoft.vo.TestVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,11 +51,11 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Principal principal, Model model) {
+	public String home(@AuthenticationPrincipal TestDto testDto, Model model) {
 
-		if(principal != null) {
+		if(testDto != null) {
 
-			model.addAttribute("logged", principal.getName());
+			model.addAttribute("logged", testDto.getIp());
 
 		}
 

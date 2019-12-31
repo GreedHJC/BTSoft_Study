@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <%--
   Created by IntelliJ IDEA.
@@ -386,6 +387,8 @@
                     <div class="border-head">
                         <h3>USER VISITS</h3>
                     </div>
+                    <security:authorize access="hasRole('ROLE_ADMIN')">
+
                     <div class="custom-bar-chart">
                         <ul class="y-axis">
                             <li><span>10.000</span></li>
@@ -424,6 +427,7 @@
                             <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
                         </div>
                     </div>
+                    </security:authorize>
                     <!--custom chart end-->
                     <div class="row mt">
                         <!-- SERVER STATUS PANELS -->

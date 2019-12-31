@@ -1,5 +1,6 @@
 package kr.btsoft.config;
 
+import kr.btsoft.handlers.CustomLoginSuccessHandler;
 import kr.btsoft.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.sql.DataSource;
 
@@ -44,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
                 .and().formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/",true)
+                .successHandler(successHandler())
                 .permitAll()
                 .and().logout()
                 .logoutSuccessUrl("/login")
@@ -67,5 +69,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CustomUserDetailsService customUserDetailsService() {
         return new CustomUserDetailsService();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler successHandler() {
+        return new CustomLoginSuccessHandler("/");
     }
 }

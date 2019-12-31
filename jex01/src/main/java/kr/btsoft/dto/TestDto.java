@@ -4,12 +4,7 @@ import kr.btsoft.vo.TestVo;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-import java.util.Date;
 
 @Setter
 @Getter
@@ -23,4 +18,3 @@ public class TestDto extends User {
         super(testvo.getUserId(), testvo.getUserPw(), testvo.getAuthorities());
     }
 }
-
