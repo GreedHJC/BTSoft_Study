@@ -22,7 +22,6 @@
       <div class="panel-body">
 
       <form role="form" action="/board/modify" method="post">
-      
         <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
         <input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
 	    <input type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
@@ -102,6 +101,7 @@ $(document).ready(function() {
 	      var typeTag = $("input[name='type']").clone();      
 	      
 	      formObj.empty();
+
 	      formObj.append(pageNumTag);
 	      formObj.append(amountTag);
 	      formObj.append(keywordTag);
