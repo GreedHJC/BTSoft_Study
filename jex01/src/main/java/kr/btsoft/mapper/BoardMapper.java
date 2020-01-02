@@ -5,8 +5,8 @@ import kr.btsoft.domain.Criteria;
 
 import java.util.List;
 
-public interface BoardMapper {
 
+public interface BoardMapper {
 
     public List<BoardVO> getList();
 
