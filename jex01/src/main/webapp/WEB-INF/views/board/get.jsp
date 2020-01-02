@@ -29,24 +29,20 @@
             <div class="panel-body">
 
                 <div class="form-group">
-                    <label>Bno</label> <input class="form-control" name='bno'
-                                              value='<c:out value="${board.bno }"/>' readonly="readonly">
+                    <label>Bno</label> <input class="form-control" name='bno' value='<c:out value="${board.bno }"/>' readonly="readonly">
                 </div>
 
                 <div class="form-group">
-                    <label>Title</label> <input class="form-control" name='title'
-                                                value='<c:out value="${board.title }"/>' readonly="readonly">
+                    <label>Title</label> <input class="form-control" name='title' value='<c:out value="${board.title }"/>' readonly="readonly">
                 </div>
 
                 <div class="form-group">
                     <label>Text area</label>
-                    <textarea class="form-control" rows="3" name='content'
-                              readonly="readonly"><c:out value="${board.content}" /></textarea>
+                    <textarea class="form-control" rows="3" name='content' readonly="readonly"><c:out value="${board.content}" /></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label>Writer</label> <input class="form-control" name='writer'
-                                                 value='<c:out value="${board.writer }"/>' readonly="readonly">
+                    <label>Writer</label> <input class="form-control" name='writer' value='<c:out value="${board.writer }"/>' readonly="readonly">
                 </div>
 
                 <%-- 		<button data-oper='modify' class="btn btn-default">
@@ -69,14 +65,9 @@
                     <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
                     <input type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
                     <input type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
-
                 </form>
-
-
-
             </div>
             <!--  end panel-body -->
-
         </div>
         <!--  end panel-body -->
     </div>
@@ -86,26 +77,19 @@
 
 
 <div class='row'>
-
     <div class="col-lg-12">
-
         <!-- /.panel -->
         <div class="panel panel-default">
             <!--       <div class="panel-heading">
                     <i class="fa fa-comments fa-fw"></i> Reply
                   </div> -->
-
             <div class="panel-heading">
                 <i class="fa fa-comments fa-fw"></i> Reply
                 <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
             </div>
-
-
             <!-- /.panel-heading -->
             <div class="panel-body">
-
                 <ul class="chat">
-
                 </ul>
                 <!-- ./ end ul -->
             </div>
@@ -115,8 +99,6 @@
     </div>
     <!-- ./ end row -->
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -155,9 +137,7 @@
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 
 <script>
-
     $(document).ready(function () {
-
         var bnoValue = '<c:out value="${board.bno}"/>';
         var replyUL = $(".chat");
 
@@ -293,7 +273,6 @@
                 showList(-1);
             });
         });
-
 
         //댓글 조회 클릭 이벤트 처리
         $(".chat").on("click", "li", function(e){
