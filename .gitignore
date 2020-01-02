@@ -14,7 +14,7 @@ bin
 .svn
 *.class
 *.bak
-.idea
+.idea/*
 
 
 /ex01/memonote/
