@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -17,6 +19,8 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = {"kr.btsoft.sample","kr.btsoft.controller", "kr.btsoft.service"})
 @ComponentScan(basePackages = "kr.btsoft.aop")
 @EnableAspectJAutoProxy
+
+@EnableTransactionManagement        //'aspectj-autoproxy'에 대한 설정
 
 @MapperScan(basePackages = {"kr.btsoft.mapper"})
 public class RootConfig {
@@ -41,5 +45,11 @@ public class RootConfig {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource((dataSource()));
         return (SqlSessionFactory) sqlSessionFactory.getObject();
+    }
+
+    //txManager()는 <bean> 설정을 대신
+    @Bean
+    public DataSourceTransactionManager txManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 }

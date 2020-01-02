@@ -2,6 +2,7 @@ package kr.btsoft.mapper;
 
 import kr.btsoft.domain.BoardVO;
 import kr.btsoft.domain.Criteria;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ public interface BoardMapper {
     public int update(BoardVO board);
 
     public int getTotalCount(Criteria cri);
+
+    public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 
 
 }
