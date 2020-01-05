@@ -15,6 +15,7 @@
             <input name="userId" type="text" placeholder="아이디"/>
             <input name="userPw" type="password" placeholder="비밀번호"/>
             <input name="userName" type="text" placeholder="이름"/>
+            <input name="userHp" type="text" placeholder="전화번호"/>
             <button type="submit">가입하기</button>
             <p class="message"><a href="#">로그인</a></p>
         </form>

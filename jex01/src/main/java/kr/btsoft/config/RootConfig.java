@@ -39,7 +39,6 @@ public class RootConfig {
 
     @Bean
     public DataSource dataSource() {
-        System.out.println(datasourceVo.toString());
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDriverClassName(datasourceVo.getClassname());
         hikariConfig.setJdbcUrl(datasourceVo.getUrl());
@@ -59,11 +58,11 @@ public class RootConfig {
         return (SqlSessionFactory) sqlSessionFactory.getObject();
     }
 
-    @Bean
-    public SqlSession sqlSession() throws Exception {
-        SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory());
-        return sqlSessionTemplate;
-    }
+//    @Bean
+//    public SqlSession sqlSession() throws Exception {
+//        SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory());
+//        return sqlSessionTemplate;
+//    }
 
     @Bean
     public PlatformTransactionManager transactionManager() throws URISyntaxException, GeneralSecurityException, ParseException, IOException {

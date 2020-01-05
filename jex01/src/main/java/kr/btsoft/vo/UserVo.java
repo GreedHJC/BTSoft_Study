@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-public class TestVo {
+public class UserVo {
 
     private String officeNum;
     private String userId;
@@ -19,13 +19,13 @@ public class TestVo {
     private String userName;
     private int userBirth;
     private String userAddr;
-    private int userHp;
-    private int officeTel;
+    private String userHp;
+    private String officeTel;
     private Date joinDay;
     private Date outDay;
     private String grade;
     private String depart;
-    private char enabled;
+    private boolean enabled;
     private Collection<? extends GrantedAuthority> authorities;
 
 }

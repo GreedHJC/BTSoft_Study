@@ -1,7 +1,8 @@
 package kr.btsoft.service;
 
-import kr.btsoft.dao.TestDao;
-import kr.btsoft.vo.TestVo;
+import kr.btsoft.dao.UserDao;
+import kr.btsoft.utils.OfficeNumUtil;
+import kr.btsoft.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class TestServiceImpl implements TestService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    private TestDao testDao;
+    private UserDao userDao;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -22,7 +23,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public String testNow() {
 
-        String test = testDao.selectNow();
+        String test = userDao.selectNow();
 
         return test;
     }
@@ -30,22 +31,20 @@ public class TestServiceImpl implements TestService {
     //특정 예외가 발생 시 강제로 Rollback 진행
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public int insrtSignup(TestVo testVo) {
+    public int insrtSignup(UserVo userVo) {
 
-        testVo.setUserPw(passwordEncoder.encode(testVo.getUserPw()));
-        testVo.setOfficeNum("1234");
-        testVo.setUserHp(01);
-        testVo.setEnabled('1');
+        userVo.setUserPw(passwordEncoder.encode(userVo.getUserPw()));
+        userVo.setOfficeNum(OfficeNumUtil.maxOfficeNum(userDao.readMaxofnum()));
+        userVo.setEnabled(false);
 
         Map<String, Object> auth = new HashMap<>();
 
-        auth.put("userId", testVo.getUserId());
-        auth.put("officeNum", testVo.getOfficeNum());
-        auth.put("authority", "ROLE_ADMIN");
+        auth.put("userId", userVo.getUserId());
+        auth.put("authority", "ROLE_USER");
 
-        int temp = testDao.insertSignup(testVo);
-        testDao.insertAuth(auth);
+        int success = userDao.insertSignup(userVo);
+        userDao.insertAuth(auth);
 
-        return temp;
+        return success;
     }
 }

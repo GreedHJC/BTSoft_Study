@@ -1,8 +1,8 @@
 package kr.btsoft.controller;
 
-import kr.btsoft.dto.TestDto;
-import kr.btsoft.service.TestService;
-import kr.btsoft.vo.TestVo;
+import kr.btsoft.vo.UserDetailsVo;
+import kr.btsoft.service.UserService;
+import kr.btsoft.vo.UserVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.security.Principal;
 import java.util.Locale;
 
 /**
@@ -24,7 +23,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
-	private TestService testService;
+	private UserService userService;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -34,28 +33,28 @@ public class HomeController {
 
 		logger.info("Welcome home! The client locale is {}.", locale);
 
-		System.out.println(testService.testNow());
+		System.out.println(userService.testNow());
 
 		return "login/login";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signup(TestVo testVo) {
+	public String signup(UserVo userVo) {
 
-		logger.info("signup request : " + testVo.toString());
+		logger.info("signup request : " + userVo.toString());
 
-		int check = testService.insrtSignup(testVo);
+		int check = userService.insrtSignup(userVo);
 
 		return "redirect:/login";
 
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(@AuthenticationPrincipal TestDto testDto, Model model) {
+	public String home(@AuthenticationPrincipal UserDetailsVo userDetailsVo, Model model) {
 
-		if(testDto != null) {
+		if(userDetailsVo != null) {
 
-			model.addAttribute("logged", testDto.getIp());
+			model.addAttribute("logged", userDetailsVo.getIp());
 
 		}
 

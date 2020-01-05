@@ -1,17 +1,18 @@
 package kr.btsoft.mapper;
 
 
-import kr.btsoft.vo.TestVo;
+import kr.btsoft.vo.UserVo;
 
 import java.util.List;
 import java.util.Map;
 
-public interface TestMapper {
+public interface UserMapper {
 
     public String selectNow();
-    public int insertSignup(TestVo testVo);
+    public int insertSignup(UserVo userVo);
     public int insertAuth(Map auth);
-    public TestVo readUser(String username);
+    public UserVo readUser(String username);
     public List<String> readAuthority(String username);
+    public String readMaxofnum();
 
 }

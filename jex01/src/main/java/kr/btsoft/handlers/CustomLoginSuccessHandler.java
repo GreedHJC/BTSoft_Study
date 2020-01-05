@@ -1,6 +1,6 @@
 package kr.btsoft.handlers;
 
-import kr.btsoft.dto.TestDto;
+import kr.btsoft.vo.UserDetailsVo;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
@@ -20,7 +20,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws ServletException, IOException {
 
-        ((TestDto)authentication.getPrincipal()).setIp(getClientIp(request));
+        ((UserDetailsVo)authentication.getPrincipal()).setIp(getClientIp(request));
 
         HttpSession session = request.getSession();
         if (session != null) {

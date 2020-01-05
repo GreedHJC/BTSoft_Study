@@ -1,7 +1,7 @@
 package kr.btsoft.config;
 
 import kr.btsoft.handlers.CustomLoginSuccessHandler;
-import kr.btsoft.service.CustomUserDetailsService;
+import kr.btsoft.service.CustomUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,18 +23,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired PasswordEncoder passwordEncoder;
 
     @Autowired
-    CustomUserDetailsService customUserDetailsService;
+    CustomUserDetailsServiceImpl customUserDetailsServiceImpl;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         //Database 상엔 authority 값이 "ROLE_ADMIN", "ROLE_USER" 형식으로 INSERT.
-//        auth.jdbcAuthentication()
-//                .dataSource(dataSource)
-//                .passwordEncoder(passwordEncoder)
-//                .usersByUsernameQuery("select user_id as username, user_pw as password, enabled from user_info where user_id = ?")
-//                .authoritiesByUsernameQuery("select user_id as username, authority from authorities where user_id = ?");
-        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(customUserDetailsServiceImpl).passwordEncoder(passwordEncoder());
     }
 
     //Spring Security 5 에선 Role 이름을 "ADMIN", "USER" 형식으로 해야 인증이 완료됨.
@@ -67,8 +62,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public CustomUserDetailsService customUserDetailsService() {
-        return new CustomUserDetailsService();
+    public CustomUserDetailsServiceImpl customUserDetailsService() {
+        return new CustomUserDetailsServiceImpl();
     }
 
     @Bean

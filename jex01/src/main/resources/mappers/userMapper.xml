@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="kr.btsoft.mapper.TestMapper">
+<mapper namespace="kr.btsoft.mapper.UserMapper">
 
     <select id="selectNow" resultType="String">
         SELECT sysdate
@@ -8,21 +8,21 @@
     </select>
 
     <!-- jdbcType 지정은 null 값이 넘어 올 경우 허용하여 insert 함  -->
-    <insert id="insertSignup" parameterType="kr.btsoft.vo.TestVo">
+    <insert id="insertSignup" parameterType="kr.btsoft.vo.UserVo">
 
                 insert into USER_INFO
-                values (INDEX_NO_SEQ.nextval, #{officeNum}, #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userAddr, jdbcType=VARCHAR}, #{userHp}, #{officeTel}, sysdate, sysdate, #{grade, jdbcType=VARCHAR}, #{depart, jdbcType=VARCHAR}, #{enabled})
+                values (INDEX_NO_SEQ.nextval, #{officeNum}, #{userId}, #{userPw}, #{userName}, #{userBirth}, #{userAddr, jdbcType=VARCHAR}, #{userHp}, #{officeTel, jdbcType=VARCHAR}, sysdate, sysdate, #{grade, jdbcType=VARCHAR}, #{depart, jdbcType=VARCHAR}, #{enabled})
 
     </insert>
 
     <insert id="insertAuth" parameterType="map">
 
                 insert into AUTHORITIES
-                values (#{userId}, #{officeNum}, #{authority})
+                values (#{userId}, #{authority})
 
     </insert>
 
-    <select id="readUser" parameterType="String" resultType="kr.btsoft.vo.TestVo">
+    <select id="readUser" parameterType="String" resultType="kr.btsoft.vo.UserVo">
 
                       SELECT * FROM USER_INFO
                       WHERE USERID = #{username}
@@ -34,5 +34,12 @@
                         WHERE USERID = #{username}
 
             </select>
+
+    <select id="readMaxofnum" resultType="String">
+
+        select MAX(officeNum) keep ( dense_rank LAST ORDER BY INDEXNO) AS LAST_OFFICENUM
+        from USER_INFO
+
+    </select>
 
 </mapper>
