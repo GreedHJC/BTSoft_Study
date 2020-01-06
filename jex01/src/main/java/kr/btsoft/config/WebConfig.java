@@ -4,6 +4,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
 // 3개의 추상 메서드를 오버라이드 하도록 작성.
@@ -26,11 +27,6 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	}
 
 	@Override
-	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-		registration.setInitParameter("throwExceptionIfNoHandlerFound","true");
-	}
-
-	@Override
 	protected Filter[] getServletFilters() {
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");
@@ -38,4 +34,17 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
 		return new Filter[] { characterEncodingFilter };
 	}
+
+	@Override
+	protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+		MultipartConfigElement multipartConfig =
+				new MultipartConfigElement("C:\\upload\\temp",
+						20971520,
+						41943040,
+						20971520);
+
+		registration.setMultipartConfig(multipartConfig);
+	}
+
 }
