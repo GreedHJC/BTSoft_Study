@@ -10,16 +10,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 //클래스의 인스턴스를 이용해 설정파일 대신
 @Configuration
-@ComponentScan(basePackages = {"kr.btsoft.sample","kr.btsoft.controller", "kr.btsoft.service"})
+@ComponentScan(basePackages = {"kr.btsoft.sample","kr.btsoft.controller", "kr.btsoft.service", "kr.btsoft.task"})
 @ComponentScan(basePackages = "kr.btsoft.aop")
 @EnableAspectJAutoProxy
-
+@EnableScheduling
 @EnableTransactionManagement        //'aspectj-autoproxy'에 대한 설정
 
 @MapperScan(basePackages = {"kr.btsoft.mapper"})

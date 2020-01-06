@@ -1,5 +1,6 @@
 package kr.btsoft.service;
 
+import kr.btsoft.domain.BoardAttachVO;
 import kr.btsoft.domain.BoardVO;
 import kr.btsoft.domain.Criteria;
 
@@ -22,4 +23,7 @@ public interface BoardService {
     //추가
     public int getTotal(Criteria cri);
 
+    public List<BoardAttachVO> getAttachList(Long bno);
+
+    public void removeAttach(Long bno);
 }
