@@ -1,1 +1,45 @@
-/.idea/
+### Java template
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IntelliJ project files
+.idea
+.idea/*.xml
+*.iml
+out
+gen
+build
+rebel.xml
+
+# Compliled files
+/target/
+**/target
+
+/example/
+
+# Gradle
+.gradle
+/build/
+.gradletasknamecache
+
+# Project exclude paths
+target
+build
+bin
+*~
+*.log
+.classpath
+.project
+*.ipr
+*.iws
+*.iml
+.settings
+.git
+.svn
+*.class
+*.bak
+
