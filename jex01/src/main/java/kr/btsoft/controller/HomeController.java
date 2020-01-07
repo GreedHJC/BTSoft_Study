@@ -77,5 +77,14 @@ public class HomeController {
 		}
 		return success;
 	}
+	
+	@RequestMapping(value = "/userInfoManage", method = RequestMethod.GET)
+	public String userInfoMange(@AuthenticationPrincipal UserDetailsVo userDetailsVo, Model model) {
+
+		logger.info("userInfoManage");
+
+		return "userInfoManage";
+	}
+
 
 }
