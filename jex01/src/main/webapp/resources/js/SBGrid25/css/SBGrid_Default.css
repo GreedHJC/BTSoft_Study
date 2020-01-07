@@ -1,0 +1,387 @@
+﻿.sbgrid_span {										/*SBGrid의 data를 표시하는 <span>에 적용하는 CSS 클래스*/
+	padding-left:2px;
+	padding-right:2px;
+	letter-spacing:normal;
+}
+
+.sbgrid_cl_st {										/*마지막 컬럼의 오른쪽 선을 표시하는 ColumnLine영역의 스타일 CSS 클래스*/
+	background-color:#B2BAD2 !important;
+	width: 1px !important;
+}
+
+.sbgrid_fixed_table_st {							/*헤더영역을 표시하는 <table>들에 적용되는 스타일 CSS 클래스*/
+	background-color:#EAEFF3;
+	font-weight: bold;
+	text-align:center;
+	color:#0E3979;	
+}
+
+.sbgrid_data_table_st {								/*헤더영역이 아닌 행 데이터를 표시하는 영역의 <table>들에 적용되는 스타일 CSS 클래스*/
+	background-color:#FFFFFF;
+}
+
+.sbgrid_cell_border_st {							/*Cell의 border를 설정하는 CSS 클래스*/
+	border-width: 1px 1px 1px 0px;/*top, right, bottom, left*/
+	border-style: solid;
+}
+
+.sbgrid_cell_st {									/*그리드의 셀을 표시하는 <td>들에 적용되는 스타일 CSS 클래스*/
+	border-collapse:collapse !important;
+}
+
+.sbgrid_fixed_cell_st {								/*헤더영역의 셀을 표시하는 <td>들에 적용되는 스타일 CSS 클래스*/
+	border-color:#B2BAD2;
+}
+
+.sbgrid_disabled_fixed_cell_st {
+	border-color:#B2BAD2;
+}
+
+.sbgrid_data_cell_st {								/*헤더영역이 아닌 행 데이터 셀을 표시하는 <td>들에 적용되는 스타일 CSS 클래스*/
+	border-color:#B2BAD2;
+}
+
+.sbgrid_radio_cell_st {								/*컬럼 타입이 "radio"인 행 데이터 셀을 표시하는 <td>들에 적용되는 스타일 CSS 클래스*/
+	text-align:center;
+}
+
+.sbgrid_checkbox_cell_st {							/*컬럼 타입이 "checkbox"인 행 데이터 셀을 표시하는 <td>들에 적용되는 스타일 CSS 클래스*/
+	text-align:center;
+}
+
+.sbgrid_input_text_st {								/*컬럼 타입이 "input"인 행 데이터 셀의 입력모드 <input>에 적용되는 스타일 CSS 클래스*/
+	border-style:solid;
+	border-color:#80a2c9;
+	background-color:#F2F8FC;
+	color:#000000;
+}
+
+.sbgrid_inputdate_button_st {						/*inputdate 영역에 <button>에 적용되는 스타일 CSS 클래스*/
+	width:95%;
+	height:18px;
+	background:url(../img/grid/cal_button.png) no-repeat;
+	background-color:#f0f0f0;
+	background-position:center;
+	border:1px solid #cdcdcd;
+	cursor:Pointer;
+}
+
+.sbgrid_inputbutton_button_st {						/*inputbutton 영역에 <button>에 적용되는 스타일 CSS 클래스*/
+	width:19px;
+	height:18px;
+	background:url(../img/grid/button.png) no-repeat;
+	background-position:center;
+	border:none;
+	cursor:Pointer;
+}
+
+.sbgrid_outputbutton_button_st {					/*outputbutton 영역에 <button>에 적용되는 스타일 CSS 클래스*/
+	width:19px;
+	height:18px;
+	background:url(../img/grid/button.png) no-repeat;
+	background-position:center;
+	border:none;
+	cursor:Pointer;
+}
+
+.sbgrid_group_ui_label_st {							/*SBGrid의 Group UI의 접고 펼침 상태를 나타내는 아이콘을 표시하는 <label>에 적용하는 스타일 CSS 클래스*/
+	width:16px;
+	height:16px;
+}
+
+.sbgrid_group_ui_open {								/*SBGrid의 Group UI가 펼쳐졌을 때 표시하는 이미지를 설정하는 CSS 클래스*/
+	background-image:url(../img/grid/group_open.png);
+}
+
+.sbgrid_group_ui_collapse {							/*SBGrid의 Group UI가 접혀졌을 때 표시하는 이미지를 설정하는 CSS 클래스*/
+	background-image:url(../img/grid/group_collapse.png);
+}
+
+.sbgrid_group_ui_lock {								/*SBGrid의 Group UI가 lock 상태 일 때 표시하는 이미지를 설정하는 CSS 클래스*/
+	background-image:url(../img/grid/group_lock.png);
+}
+
+.sbgrid_lock_ui_st {								/*SBGrid의 Lock UI를 표시하는 <div>에 적용하는 스타일 CSS 클래스*/
+	background:#000000 url(../img/grid/wait.png) no-repeat center center;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE 8 */
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70); /* IE 7 and olders */
+    opacity: .7; 
+}
+
+.sbgrid_GA_st {										/*그리드를 표시하는 최상위 <DIV>에 적용되는 스타일 CSS 클래스*/
+	font-family: '맑은 고딕', 'Malgun Gothic' !important;	/*그리드 전체의 글꼴*/
+	cursor:default;
+}
+
+
+.sbgrid_GFA_st {									/*패널이나 페이징UI가 아닌 그리드를 표시하는 <DIV>에 적용되는 스타일 CSS 클래스*/
+	width:100% !important;				/*그리드의 width*/
+	border:1px solid !important;		/*그리드 테두리 */
+	border-color:#B2BAD2 !important;
+	font-size: 13px !important;			/*그리드 전체의 폰트 크기*/
+	color: #000000;						/*그리드 전체의 폰트 색*/
+	background-image:url(../img/grid/SBGridLogo.png) !important;/*그리드 배경 로고*/
+	background-color:#FFFFFF !important;
+	background-position:center !important;
+	background-size: 420px 130px !important;
+	background-repeat:no-repeat !important;
+}
+
+.sbgrid_PUIA_st {							/*페이징UI를 감싸고 있는 최상위 영역의 스타일 CSS 클래스*/
+	height:50px;
+}
+
+.sbgrid_PUI_BA_st {							/*페이징UI와 그리드와의 공백을 주기 위한 발란스 영역의 스타일 CSS 클래스*/
+	height:10px;
+}
+
+.sbgrid_PUI_WRAP_st {						/*페이징UI를 표시하는 <DIV>에 적용되는 스타일 CSS 클래스*/
+	text-align:center;
+	margin:0 0;
+	font-size:12px;
+}
+
+.sbgrid_PUI_PN_st {							/*페이징UI를 표시하는 <ul>에 적용되는 스타일 CSS 클래스*/
+	display:inline-block;
+}
+
+.sbgrid_PUI_PM {							/*페이징UI의 이동 버튼을 표시하는 <li>에 적용되는 스타일 CSS 클래스*/
+	background: #E1E1E1;
+}
+
+.sbgrid_PUI_PN li {
+	display: inline-block;
+	margin:0;
+	padding:0;
+	vertical-align: middle;
+}
+
+.sbgrid_PUI_PN li a {
+	color: black;
+	float: left;
+	padding: 4px 12px;
+	text-decoration:none;
+	border: 1px solid #ddd;
+}
+
+.sbgrid_PUI_PN li a.active {
+	background-color:#8ebf50;
+	color:white;
+	border:1px solid #8ebf50;
+}
+
+.sbgrid_PUI_PN li a:hover {
+	background-color: #ddd;
+}
+
+.sbgrid_PUI_PN li a.active:hover {
+	background-color: #8ebf50;
+}
+
+.sbgrid_PUI_PN .goalPage {
+	display:inline-block;
+	width: 180px;
+}
+
+.sbgrid_PUI_PN .goalPage > a {
+	display:inline-block;
+	line-height:25px;
+	background:#666;
+	color:#fff;
+	border:1px solid #666; 
+	height:28px;
+	float:right !important;
+	padding-top:0 !important;
+	padding-bottom:0 !important;
+	padding-left:11px !important;
+	padding-right:11px !important;
+}
+
+.sbgrid_PUI_PN .goalPage > a:hover {
+	background: #444;
+}
+
+.sbgrid_PUI_PN .goalPage > span {
+	display: inline-block;
+	left:0;
+}
+
+.sbgrid_PUI_PN .goalPage > span > input {
+	height:28px;
+	width: 50px;/*width: 26px;*/
+	text-align:center;
+	border:1px solid #ddd;
+	color:#333;
+	padding:0 0 0 0px;
+	background:#F3F3F3;
+	font-weight:bold;
+	vertical-align:middle;
+}
+
+.sbgrid_PUI_TPC {
+	left:30px;
+}
+
+.sbgrid_PUI_PN .sbgrid_PUI_PM > a {
+	font-size: 16px;
+	text-align: center;
+	vertical-align: middle;
+	margin:0; padding:0;
+	height: 28px;
+	width: 28px;
+}
+
+.sbgrid_PUI_PN .sbgrid_PUI_PM > a:hover {
+	background: #BDBDBD;
+}
+
+.sbgrid_PUI_NLI > a {
+	font-size: 12px;
+	line-height:25px;
+	text-align: center;
+	vertical-align: middle;
+	margin:0;
+	padding-top:0 !important;
+	padding-bottom:0 !important;
+	padding-left:11px !important;
+	padding-right:11px !important;
+	height: 28px;
+}
+
+.sbgrid_MA_st {										/*세로 스크롤바 영역을 제외한 그리드 영역 <DIV>에 적용되는 스타일 CSS 클래스*/
+	border-right-color:#B2BAD2 !important;
+}
+
+.sbgrid_VSA_st {									/*세로 스크롤바 영역 <DIV>에 적용되는 스타일 CSS 클래스*/
+	background-color:#B2BAD2 !important;
+	border-color:#B2BAD2 !important;
+}
+
+.sbgrid_WA_st {}									/*스크롤바를 제외한 그리드 영역 <DIV>에 적용되는 스타일 CSS 클래스*/
+
+.sbgrid_HSA_st {									/*가로 스크롤바 영역 <DIV>에 적용되는 스타일 CSS 클래스*/
+	background-color:#B2BAD2 !important;
+}
+
+.sbgrid_CMA_st {									/*컬럼 이동 속성이 활성화되어 있을 때, 헤더 영역 컬럼을 마우스 드래그하면 나타나는 ColumnMoveArea <DIV>에 적용되는 스타일 CSS 클래스*/
+	background: #B2BAD2;
+	filter: alpha(opacity = 80);
+	opacity: 0.9;
+}
+
+.sbgrid_RHA_st {}
+.sbgrid_FCA_st {}
+.sbgrid_FA_st {}
+.sbgrid_DA_st {}
+.sbgrid_WMA_st {}
+.sbgrid_FFRHA_st {}
+.sbgrid_FCHA_st {}
+.sbgrid_FFHA_st {}
+.sbgrid_FHA_st {}
+.sbgrid_CML_st {
+	background: #6495ED;
+}
+
+.sbgrid_RHT_st {}
+.sbgrid_FCT_st {}
+.sbgrid_FT_st {}
+.sbgrid_DT_st {}
+.sbgrid_WMT_st {}
+.sbgrid_FFRHT_st {}
+.sbgrid_FCHT_st {}
+.sbgrid_FFHT_st {}
+.sbgrid_FHT_st {}
+
+.sbgrid_focus_st {									/*그리드의 포커스 영역 스타일*/
+	background-color:#3161C6 !important;
+	color:#FFFFFF !important;
+	border-color:#B2BAD2;
+	font-weight:bold !important;
+}
+
+.sbgrid_sort_asc_st {								/*오름차순 정렬 아이콘 스타일*/
+	background:url(../img/grid/sort_asc.png) 50% 50% no-repeat;
+}
+
+.sbgrid_sort_desc_st {								/*내림차순 정렬 아이콘 스타일*/
+	background:url(../img/grid/sort_desc.png) 50% 50% no-repeat;
+}
+
+.sbgrid_fixed_table_st td.sbgrid_fixed_cell_st:hover{		/*헤더 영역의 셀에 hover 발생 시 스타일*/
+	background-color:#C5DCF0 !important;
+}
+
+.sbgrid_data_cell_hover_st,.sbgrid_data_row_hover_st {		/*데이터 영역의 셀/행에 hover 발생 시 스타일*/
+	background-color:#DEEFFD !important;
+	color:#3161C6 !important;
+	font-weight:bold !important;
+}
+
+.sbgrid_data_cell_hover_st,.sbgrid_data_row_hover_st td {	/*데이터 영역의 행/셀에 hover 발생 시 TD에 적용되는 스타일*/
+	border-color: #C5DCF0;
+}
+
+.sbgrid_renderer_span {}
+
+.sbgrid_FIA_before_st{										/*FilteringIconArea의 필터링 적용 전 스타일 CSS 클래스*/
+	background:url(../img/grid/filter_before.png) 50% 50% no-repeat;
+}
+
+.sbgrid_FIA_after_st{										/*FilteringIconArea의 필터링 적용 후 스타일 CSS 클래스*/
+	background:url(../img/grid/filter_after.png) 50% 50% no-repeat;
+}
+
+.sbgrid_FTRA_IAB{
+	background:url(../img/grid/plus.png) 50% 50% no-repeat;
+}
+
+.sbgrid_combo_button_st{
+	width:20px;
+	background:url(../img/grid/combobutton.png) 50% 50% no-repeat;
+	background-position:center;
+	border: 1px solid #dadada;
+	border-radius: 4px;
+	margin-right:2px;
+}
+
+.sbgrid_datepicker_button_st{
+	width:95%;
+	height:18px;
+	background:url(../img/grid/cal_button.png) no-repeat;
+	background-color:#f0f0f0;
+	background-position:center;
+	border:1px solid #cdcdcd;
+	cursor:Pointer;
+}
+
+.sbgrid_GFA_none_logo_st{
+	background-image:none !important;
+}
+
+.sbgrid_status_area_update{
+	background:url(../img/grid/edit_status.png) no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 18px;
+}
+
+.sbgrid_status_area_delete{
+	background:url(../img/grid/delete_status.png) no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 18px;
+}
+
+.sbgrid_status_area_insert{
+	background:url(../img/grid/add_status.png) no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 18px;
+}
+
+.sbgrid_status_area_select{
+	background:url(../img/grid/checked.png) no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 18px;
+}

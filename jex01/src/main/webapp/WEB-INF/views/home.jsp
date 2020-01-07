@@ -1,6 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ page session="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: love_
@@ -8,8 +5,8 @@
   Time: 오전 11:23
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html; charset=UTF-8" language="java" 
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/common.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,22 +17,8 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <title>Dashio - Bootstrap Admin Template</title>
-
-    <!-- Favicons -->
-    <link href="/resources/img/favicon.png" rel="icon">
-    <link href="/resources/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Bootstrap core CSS -->
-    <link href="/resources/js/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!--external css-->
-    <link href="/resources/js/dist/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="/resources/js/dist/gritter/css/jquery.gritter.css" />
-    <!-- Custom styles for this template -->
-    <link href="/resources/css/style.css" rel="stylesheet">
-    <link href="/resources/css/style-responsive.css" rel="stylesheet">
-    <script src="/resources/js/dist/chart-master/Chart.js"></script>
-
+	
+	<script src="/resources/js/dist/chart-master/Chart.js"></script>
     <!-- =======================================================
       Template Name: Dashio
       Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -330,7 +313,7 @@
                 <div class="col-lg-3 ds">
                     <!--COMPLETED ACTIONS DONUTS CHART-->
                     <div class="donut-main">
-                        <h4>COMPLETED ACTIONS & PROGRESS</h4>
+                        <h4>테스트</h4>
                         <canvas id="newchart" height="130" width="130"></canvas>
                         <script>
                             var doughnutData = [{
@@ -486,21 +469,11 @@
     <!--main content end-->
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
 </section>
-<!-- js placed at the end of the document so the pages load faster -->
-<script src="/resources/js/dist/jquery/jquery.min.js"></script>
 
-<script src="/resources/js/dist/bootstrap/js/bootstrap.min.js"></script>
-<script class="include" type="text/javascript" src="/resources/js/dist/jquery.dcjqaccordion.2.7.js"></script>
-<script src="/resources/js/dist/jquery.scrollTo.min.js"></script>
-<script src="/resources/js/dist/jquery.nicescroll.js" type="text/javascript"></script>
-<script src="/resources/js/dist/jquery.sparkline.js"></script>
-<!--common script for all pages-->
-<script src="/resources/js/dist/common-scripts.js"></script>
-<script type="text/javascript" src="/resources/js/dist/gritter/js/jquery.gritter.js"></script>
-<script type="text/javascript" src="/resources/js/dist/gritter-conf.js"></script>
 <!--script for this page-->
 <script src="/resources/js/dist/sparkline-chart.js"></script>
 <script src="/resources/js/dist/zabuto_calendar.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         var unique_id = $.gritter.add({
