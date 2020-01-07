@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
-    <link rel="stylesheet" href="resources/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 </head>
 <body>
 <div class="login-page">
@@ -37,11 +37,11 @@
             <p class="message"><a href="#">로그인</a></p>
         </form>
 
-        <form action="login" method="post" class="login-form">
+        <form id="loginform" action="login" method="post" class="login-form">
             <img src="resources/img/BTSOFT_logo.png"/>
-            <input name="username" type="text" placeholder="아이디"/>
+            <input id="loginId" name="username" type="text" placeholder="아이디"/>
             <input name="password" type="password" placeholder="비밀번호"/>
-            <button type="submit">로그인</button>
+            <button id="loginbtn" type="submit">로그인</button>
             <input type="hidden"
                    name="${_csrf.parameterName}"
                    value="${_csrf.token}"/>

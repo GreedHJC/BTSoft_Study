@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +29,9 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -38,10 +43,11 @@ public class HomeController {
 		System.out.println(userService.testNow());
 
 		return "login/login";
+
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signup(UserVo userVo) {
+	public String signUp(UserVo userVo) {
 
 		logger.info("signup request : " + userVo.toString());
 
@@ -61,14 +67,15 @@ public class HomeController {
 		}
 
 		return "home";
+
 	}
 
 	@PostMapping(value = "/regcheck")
 	@ResponseBody
-	public String regcheck(String value) {
+	public String regCheck(String userid) {
 
 		String success = "";
-		UserVo userVo = userService.selectUser(value);
+		UserVo userVo = userService.selectUser(userid);
 
 		if(userVo == null) {
 			success = "0";
@@ -76,6 +83,26 @@ public class HomeController {
 			success = "1";
 		}
 		return success;
+
+	}
+
+	//produces server 로 한글 전송 시 작성
+	@PostMapping(value = "/logincheck", produces = "apllication/text; charset=utf8")
+	@ResponseBody
+	public String loginCheck(String userid, String userpw) {
+
+		String success = "";
+		UserVo userVo = userService.selectUser(userid);
+
+		if(userVo == null || !passwordEncoder.matches(userpw, userVo.getUserPw())) {
+			success = "아이디 또는 비밀번호가 틀립니다.";
+		} else if(userVo != null && userVo.isEnabled() == false){
+			success = "인증 미완료 계정입니다. 관리자에게 문의하세요.";
+		}else {
+			success = "1";
+		}
+		return success;
+
 	}
 	
 	@RequestMapping(value = "/userInfoManage", method = RequestMethod.GET)

@@ -77,7 +77,7 @@ $(function () {
             url: "/regcheck",
             type: "post",
             dataType: 'text',
-            data: {value: value},
+            data: {userid: value},
             timeout: 10000,
             success: function (res) {
 
@@ -118,7 +118,7 @@ $(function () {
     /* 패스워드 체크 함수 */
     function userPwCheck(value, id) {
 
-        var patt = /^(?=.*[a-z])(?=.*\d)[a-z\d]{4,8}$/;
+        var patt = /^[a-z0-9+]{4,8}$/;
         var pw1 = $('#userPw1').val();
 
         if (id == "userPw1") {
@@ -172,7 +172,7 @@ $(function () {
 
             $('#hpMsg').children('span').css('color', 'red');
             $('#hpMsg').css('display', 'block');
-            $('#hpMsg').children('span').text("전화번호 방식이 잘못 되었습니다.")
+            $('#hpMsg').children('span').text("전화번호 입력이 잘못 되었습니다.")
 
         } else {
             $('#hpMsg').css('display', 'none');
