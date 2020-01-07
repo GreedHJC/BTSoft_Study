@@ -45,4 +45,12 @@ public class UserDaoImpl implements UserDao {
 
         return officenum;
     }
+
+    @Override
+    public UserVo selectUser(String username) {
+
+        UserVo userVo = mapper.readUser(username);
+
+        return userVo;
+    }
 }

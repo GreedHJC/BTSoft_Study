@@ -7,5 +7,6 @@ public interface UserService {
 
     public String testNow();
     public int insrtSignup(UserVo userVo);
+    public UserVo selectUser(String username);
 
 }

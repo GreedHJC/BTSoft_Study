@@ -99,3 +99,13 @@ body {
 	margin-bottom: 20px;
 	width: 150px;
 }
+
+.check-form {
+  font-family: "Roboto", sans-serif;
+  display: none;
+  margin-top: -10px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-align: left;
+}

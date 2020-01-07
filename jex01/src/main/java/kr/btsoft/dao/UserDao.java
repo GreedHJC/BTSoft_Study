@@ -10,5 +10,6 @@ public interface UserDao {
     public int insertSignup(UserVo userVo);
     public int insertAuth(Map auth);
     public String readMaxofnum();
+    public UserVo selectUser(String username);
 
 }

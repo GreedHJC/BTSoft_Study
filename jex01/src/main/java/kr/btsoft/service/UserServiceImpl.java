@@ -47,4 +47,12 @@ public class UserServiceImpl implements UserService {
 
         return success;
     }
+
+    @Override
+    public UserVo selectUser(String username) {
+
+        UserVo userVo = userDao.selectUser(username);
+
+        return userVo;
+    }
 }
