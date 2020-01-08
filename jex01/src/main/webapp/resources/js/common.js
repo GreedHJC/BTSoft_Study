@@ -1,7 +1,4 @@
 
-
-$(function () {
-
    $('#loginform').on('submit', function () {
       var userid = $('input[name=username]').val();
       var userpw = $('input[name=password]').val();
@@ -38,5 +35,3 @@ $(function () {
    $('.message a').click(function(){
       $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
    });
-
-})

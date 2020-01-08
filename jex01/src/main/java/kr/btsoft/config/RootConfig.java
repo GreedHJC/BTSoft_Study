@@ -27,7 +27,7 @@ import java.security.GeneralSecurityException;
 //클래스의 인스턴스를 이용해 설정파일 대신
 @EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages = {"kr.btsoft.mapper"})
+@MapperScan(basePackages = {"kr.btsoft.dao"})
 @ComponentScan(basePackages = {"kr.btsoft.vo"})
 public class RootConfig {
 

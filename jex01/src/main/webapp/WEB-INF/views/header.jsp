@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!--header start-->
     <header class="header black-bg">
@@ -195,7 +196,7 @@
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
                 <c:if test ="${not empty logged}">
-                    <li><span class="login-infor">${logged} 하나둘셋</span></li>
+                    <li><span class="login-infor">${logged} <sec:authentication property="principal.username" /></span></li>
                 </c:if>
                 <li><a class="logout" href="logout">Logout</a></li>
 

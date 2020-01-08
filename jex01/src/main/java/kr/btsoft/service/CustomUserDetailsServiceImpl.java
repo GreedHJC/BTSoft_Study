@@ -1,6 +1,6 @@
 package kr.btsoft.service;
 
-import kr.btsoft.mapper.UserMapper;
+import kr.btsoft.dao.UserDao;
 import kr.btsoft.vo.UserDetailsVo;
 import kr.btsoft.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +18,15 @@ import java.util.List;
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao UserDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserVo userVo = userMapper.readUser(username);
+        UserVo userVo = UserDao.readUser(username);
 
         if(userVo != null) {
-            userVo.setAuthorities(makeGrantedAuthority(userMapper.readAuthority(username)));
+            userVo.setAuthorities(makeGrantedAuthority(UserDao.readAuthority(username)));
         }
         return new UserDetailsVo(userVo);
     }

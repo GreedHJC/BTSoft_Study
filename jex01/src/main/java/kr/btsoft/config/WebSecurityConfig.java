@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //Spring Security 5 에선 Role 이름을 "ADMIN", "USER" 형식으로 해야 인증이 완료됨.
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.authorizeRequests()
 //                .antMatchers("/signup").permitAll()
 //                .antMatchers("/**").hasAnyRole("ADMIN", "USER")
