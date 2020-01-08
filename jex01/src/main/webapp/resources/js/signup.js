@@ -118,7 +118,7 @@ $(function () {
     /* 패스워드 체크 함수 */
     function userPwCheck(value, id) {
 
-        var patt = /^[a-z0-9+]{4,8}$/;
+        var patt = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$/;
         var pw1 = $('#userPw1').val();
 
         if (id == "userPw1") {

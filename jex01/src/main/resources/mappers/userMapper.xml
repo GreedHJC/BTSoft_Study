@@ -2,11 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="kr.btsoft.dao.UserDao">
 
-    <select id="selectNow" resultType="String">
-        SELECT sysdate
-        from DUAL
-    </select>
-
     <!-- jdbcType 지정은 null 값이 넘어 올 경우 허용하여 insert 함  -->
     <insert id="insertSignup" parameterType="kr.btsoft.vo.UserVo">
 

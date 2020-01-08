@@ -20,13 +20,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Override
-    public String testNow() {
-
-        String test = userDao.selectNow();
-
-        return test;
-    }
 
     //특정 예외가 발생 시 강제로 Rollback 진행
     @Transactional(rollbackFor = Exception.class)
