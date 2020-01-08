@@ -20,6 +20,9 @@
                 <ul class="sub">
                     <li><a href="userInfoManage">사용자 정보 관리</a></li>
                 </ul>
+                <ul class="sub">
+                    <li><a href="breakManage">휴가 관리</a></li>
+                </ul>
             </li>
             
         </ul>
