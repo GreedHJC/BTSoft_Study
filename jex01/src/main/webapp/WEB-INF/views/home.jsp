@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +16,9 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <title>Dashio - Bootstrap Admin Template</title>
-	
-	<script src="/resources/js/dist/chart-master/Chart.js"></script>
+
+    <%@ include file="/WEB-INF/views/common.jsp" %>
+    <script src="/resources/js/dist/chart-master/Chart.js"></script>
     <!-- =======================================================
       Template Name: Dashio
       Template URL: https://templatemag.com/dashio-bootstrap-admin-template/

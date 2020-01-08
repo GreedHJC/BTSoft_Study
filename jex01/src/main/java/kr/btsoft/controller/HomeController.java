@@ -40,8 +40,6 @@ public class HomeController {
 
 		logger.info("Welcome home! The client locale is {}.", locale);
 
-		System.out.println(userService.testNow());
-
 		return "login/login";
 
 	}
@@ -112,6 +110,5 @@ public class HomeController {
 
 		return "userInfoManage";
 	}
-
 
 }
