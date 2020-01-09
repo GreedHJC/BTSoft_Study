@@ -13,5 +13,6 @@ public interface UserDao {
     public UserVo readUser(String username);
     public List<String> readAuthority(String username);
     public String readMaxofnum();
+    public List<UserVo> selectUsersInfo();
 
 }

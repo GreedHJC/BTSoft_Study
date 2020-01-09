@@ -12,16 +12,16 @@
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-<title>Insert title here</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/resources/js/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!--external css-->
-    <link href="/resources/js/dist/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="/resources/js/dist/gritter/css/jquery.gritter.css" />
-    <!-- Custom styles for this template -->
-    <link href="/resources/css/style.css" rel="stylesheet">
-    <link href="/resources/css/style-responsive.css" rel="stylesheet">
+	<title>Insert title here</title>
+    <!-- SBGrid -->
+    <link href="/resources/js/SBGrid25/css/SBGrid.css" rel="stylesheet">
+    <link href="/resources/js/SBGrid25/css/SBGrid_Default.css" rel="stylesheet">
+    
+	<script src="/resources/js/SBGrid25/SBGrid_Lib.js" type="text/javascript"></script>
+	<script src="/resources/js/SBGrid25/SBGrid_min.js" type="text/javascript"></script>
+	<script src="/resources/js/SBGrid25/SBUtil.js" type="text/javascript"></script>
+    
+    <%@ include file="/WEB-INF/views/common.jsp" %>
 </head>
 <body>
 	<!-- TOP MENU -->
@@ -34,10 +34,19 @@
 	
 	<section id="main-content">
       <section class="wrapper site-min-height">
-        <h3><i class="fa fa-angle-right"></i> Blank Page 테스트</h3>
-        <div class="row mt">
-          <div class="col-lg-12">
-            <p>Place your content here.</p>
+        <h3><i class="fa fa-angle-right"></i> 사용자 정보 관리</h3>
+        <div class="row">
+          <div class="col-lg-12 mt">
+          	<div class="form-inline">
+	          	<input type="text" placeholder="keyword" class="form-control"/>
+	          	<button type="button" class="btn btn-primary">검색</button>
+	            <button type="button" class="btn btn-default">등록</button>
+	            <button type="button" class="btn btn-default">수정</button>
+	            <button type="button" class="btn btn-default">승인</button>
+          	</div>
+          </div>
+          <div class="col-lg-12 mt">
+            <div id="userGridArea" style="width:100%;height:500px;"></div>
           </div>
         </div>
       </section>
@@ -47,21 +56,58 @@
     <!-- FOOTER MENU -->
     <%@ include file="/WEB-INF/views/footer.jsp" %>
     <!-- FOOTER MENU END -->
-    
-    <!-- js placed at the end of the document so the pages load faster -->
-	<script src="/resources/js/dist/jquery/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		var datagrid;
+	    var SBGridProperties = [];
+	    var grid_data;
 	
-	<script src="/resources/js/dist/bootstrap/js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript" src="/resources/js/dist/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="/resources/js/dist/jquery.scrollTo.min.js"></script>
-	<script src="/resources/js/dist/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="/resources/js/dist/jquery.sparkline.js"></script>
-	<!--common script for all pages-->
-	<script src="/resources/js/dist/common-scripts.js"></script>
-	<script type="text/javascript" src="/resources/js/dist/gritter/js/jquery.gritter.js"></script>
-	<script type="text/javascript" src="/resources/js/dist/gritter-conf.js"></script>
-	<!--script for this page-->
-	<script src="/resources/js/dist/sparkline-chart.js"></script>
-	<script src="/resources/js/dist/zabuto_calendar.js"></script>
+	    $(document).ready(function(){
+	    	$.ajax({
+	    	    url: "selectAllUser", // 클라이언트가 요청을 보낼 서버의 URL 주소
+	    	    type: "POST",                             // HTTP 요청 방식(GET, POST)
+	    	    dataType: "json",                         // 서버에서 보내줄 데이터의 타입
+	    	    success:function(data) {
+	    	    	console.log(data);
+	    	    	grid_data = data;
+	    	    	
+	    	    	for(var i in grid_data){
+	    	    		grid_data[i]["JOINDAY"] = convertDateFormat(grid_data[i]["JOINDAY"]);
+	    	    		grid_data[i]["OUTDAY"] = convertDateFormat(grid_data[i]["OUTDAY"]);
+	    	    	}
+	    	    	
+	    	    	createGrid();
+	    	    }
+	    	});
+	    });
+	     
+	    //그리드 선언
+	    function createGrid(){
+	        SBGridProperties.parentid = 'userGridArea';
+	        SBGridProperties.id = 'datagrid';
+	        SBGridProperties.jsonref = 'grid_data';
+	        SBGridProperties.columns = [
+	        	{caption : [''],    ref : 'check',      width : '30px',    	style : 'text-align:center',    type : 'checkbox'},
+	        	{caption:['사번'],	ref:'OFFICENUM',	width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['아이디'],	ref:'USERID',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['이름'],	ref:'USERNAME',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['소속'],	ref:'DEPART',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['직책'],	ref:'GRADE',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['전화번호'],	ref:'USERHP',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['내선번호'],	ref:'OFFICETEL',	width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['입사일'],	ref:'JOINDAY',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['퇴사일'],	ref:'OUTDAY',		width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['상태'],	ref:'TEST',			width:'100px',		style:'text-align:center',		type:'output'},
+	        	{caption:['비고'],	ref:'TEST',			width:'100px',		style:'text-align:center',		type:'output'}
+	        ];
+	        datagrid = _SBGrid.create(SBGridProperties);
+	        datagrid.bind("dblclick","rowDblClick");
+	    };
+	    
+	    function rowDblClick(){
+	    	//상세 피이지 이동
+	    	//alert("event");
+	    }
+	</script>
 </body>
 </html>

@@ -33,3 +33,7 @@
 <script src="/resources/js/dist/common-scripts.js"></script>
 <script type="text/javascript" src="/resources/js/dist/gritter/js/jquery.gritter.js"></script>
 <script type="text/javascript" src="/resources/js/dist/gritter-conf.js"></script>
+
+<!-- btstudy javascript -->
+<script type="text/javascript" src="/resources/js/common.js"></script>
+

@@ -36,5 +36,12 @@
         from USER_INFO
 
     </select>
+    
+    <select id="selectUsersInfo" resultType="kr.btsoft.vo.UserVo">
+
+        select INDEXNO, OFFICENUM, USERID, USERNAME, USERBIRTH, USERADDR, USERHP, OFFICETEL, JOINDAY, OUTDAY, GRADE, DEPART
+        from USER_INFO
+
+    </select>
 
 </mapper>

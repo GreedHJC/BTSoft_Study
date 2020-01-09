@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -48,4 +49,11 @@ public class UserServiceImpl implements UserService {
 
         return userVo;
     }
+
+	@Override
+	public List<UserVo> selectUsersInfo() {
+		List<UserVo> userList = userDao.selectUsersInfo();
+		
+		return userList;
+	}
 }

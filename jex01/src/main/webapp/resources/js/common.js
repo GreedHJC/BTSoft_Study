@@ -35,3 +35,13 @@
    $('.message a').click(function(){
       $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
    });
+   
+   /** 날짜 변환 **/
+   function convertDateFormat(data){
+	   var date = new Date(data);
+	   var year = date.getFullYear();
+	   var month = date.getMonth()+1;
+	   var day = date.getDate();
+	   
+	   return year+"-"+month+"-"+day;
+   }
