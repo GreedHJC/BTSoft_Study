@@ -14,10 +14,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -28,8 +31,10 @@ import java.security.GeneralSecurityException;
 @EnableTransactionManagement
 @Configuration
 @MapperScan(basePackages = {"kr.btsoft.dao"})
-@ComponentScan(basePackages = {"kr.btsoft.vo"})
+@ComponentScan(basePackages = {"kr.btsoft"}, excludeFilters = {@ComponentScan.Filter(type= FilterType.ANNOTATION, value={Controller.class, ControllerAdvice.class, Configuration.class})})
 public class RootConfig {
+
+
 
     @Autowired
     private ApplicationContext applicationContext;

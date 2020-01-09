@@ -1,13 +1,13 @@
 package kr.btsoft.controller;
 
-import kr.btsoft.vo.UserDetailsVo;
 import kr.btsoft.service.UserService;
+import kr.btsoft.vo.UserDetailsVo;
 import kr.btsoft.vo.UserVo;
+import lombok.extern.log4j.Log4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +22,7 @@ import java.util.Locale;
  * Handles requests for the application home page.
  */
 @Controller
+@Log4j
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
