@@ -64,7 +64,7 @@
 	
 	    $(document).ready(function(){
 	    	$.ajax({
-	    	    url: "selectAllUser", // 클라이언트가 요청을 보낼 서버의 URL 주소
+	    	    url: "selectUsersInfo", // 클라이언트가 요청을 보낼 서버의 URL 주소
 	    	    type: "POST",                             // HTTP 요청 방식(GET, POST)
 	    	    dataType: "json",                         // 서버에서 보내줄 데이터의 타입
 	    	    success:function(data) {
@@ -106,7 +106,26 @@
 	    
 	    function rowDblClick(){
 	    	//상세 피이지 이동
-	    	//alert("event");
+	    	var rowIndex = datagrid.getSelectedRows();
+	    	var rowData = datagrid.getRowData(rowIndex[0]);
+	    	var rowData_json = JSON.stringify(rowData);
+	        var form = document.createElement("form");
+
+	        form.setAttribute("charset", "UTF-8");
+	        form.setAttribute("method", "Post");  //Post 방식
+	        form.setAttribute("action", "/userDetailInfo"); //요청 보낼 주소
+
+	         var hiddenField = document.createElement("input");
+	         hiddenField.setAttribute("type", "hidden");
+	         hiddenField.setAttribute("name", "userData");
+	         hiddenField.setAttribute("value", rowData_json);
+
+	         form.appendChild(hiddenField);
+
+	         document.body.appendChild(form);
+
+	         form.submit();
+	    	//location.href="userDetailInfo?userId="+rowData.USERID;
 	    }
 	</script>
 </body>

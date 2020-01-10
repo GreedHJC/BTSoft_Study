@@ -7,14 +7,22 @@ import java.util.Locale;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.btsoft.service.UserService;
+import kr.btsoft.vo.UserDetailsVo;
 import kr.btsoft.vo.UserVo;
 
 /**
@@ -28,9 +36,31 @@ public class UserManageController {
 	@Autowired
 	private UserService userService;
 
-	@PostMapping(value = "/selectAllUser")
+	@RequestMapping(value = "/userInfoManage", method = RequestMethod.GET)
+	public String userInfoMange(Model model) {
+
+		logger.info("userInfoManage");
+
+		return "userManage/userInfoManage";
+	}
+	
+	@RequestMapping(value = "/userDetailInfo", method = RequestMethod.POST)
+	public String userDetailInfo(Model model, @RequestParam("userData") String userData) throws ParseException {
+
+		logger.info("userDetailInfo");
+
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = (JSONObject) parser.parse(userData);
+		
+		model.addAttribute("userData",jsonObj);
+
+		return "userManage/userDetailInfo";
+	}
+	
+	@PostMapping(value = "/selectUsersInfo")
 	@ResponseBody
-	public JSONArray selectAllUser(String userid) {
+	public JSONArray selectUsersInfo(String userid) {
 
 		List<UserVo> userList = userService.selectUsersInfo();
 		JSONArray jsonArr = new JSONArray();
