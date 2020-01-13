@@ -95,48 +95,48 @@
                             <a href="index.html#">
                                 <span class="photo"><img alt="avatar" src="/resources/img/ui-zac.jpg"></span>
                                 <span class="subject">
-                  <span class="from">Zac Snider</span>
-                  <span class="time">Just now</span>
-                  </span>
+				                  <span class="from">Zac Snider</span>
+				                  <span class="time">Just now</span>
+				                </span>
                                 <span class="message">
-                  Hi mate, how is everything?
-                  </span>
+				                  Hi mate, how is everything?
+				                </span>
                             </a>
                         </li>
                         <li>
                             <a href="index.html#">
                                 <span class="photo"><img alt="avatar" src="/resources/img/ui-divya.jpg"></span>
                                 <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
+				                  <span class="from">Divya Manian</span>
+				                  <span class="time">40 mins.</span>
+				                </span>
                                 <span class="message">
-                  Hi, I need your help with this.
-                  </span>
+				                  Hi, I need your help with this.
+				                </span>
                             </a>
                         </li>
                         <li>
                             <a href="index.html#">
                                 <span class="photo"><img alt="avatar" src="/resources/img/ui-danro.jpg"></span>
                                 <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
+				                  <span class="from">Dan Rogers</span>
+				                  <span class="time">2 hrs.</span>
+				                </span>
                                 <span class="message">
-                  Love your new Dashboard.
-                  </span>
+				                  Love your new Dashboard.
+				                </span>
                             </a>
                         </li>
                         <li>
                             <a href="index.html#">
                                 <span class="photo"><img alt="avatar" src="/resources/img/ui-sherman.jpg"></span>
                                 <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
+				                  <span class="from">Dj Sherman</span>
+				                  <span class="time">4 hrs.</span>
+				                </span>
                                 <span class="message">
-                  Please, answer asap.
-                  </span>
+				                  Please, answer asap.
+				                </span>
                             </a>
                         </li>
                         <li>

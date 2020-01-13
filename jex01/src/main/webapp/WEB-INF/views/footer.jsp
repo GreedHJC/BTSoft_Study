@@ -4,8 +4,9 @@
 <footer class="site-footer">
     <div class="text-center">
         <p>
-            &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+            Copyrights &copy; <strong>BTSOFT</strong> Co, LTD. All Rights Reserved
         </p>
+        
         <div class="credits">
             <!--
               You are NOT allowed to delete the credit link to TemplateMag with free version.
