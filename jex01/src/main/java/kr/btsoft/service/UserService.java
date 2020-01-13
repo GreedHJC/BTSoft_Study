@@ -9,5 +9,5 @@ public interface UserService {
 
     public int insrtSignup(UserVo userVo);
     public UserVo selectUser(String username);
-    public List<UserVo> selectUsersInfo();
+	public List<UserVo> selectUsersInfo(String keyword);
 }

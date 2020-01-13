@@ -51,8 +51,8 @@ public class UserServiceImpl implements UserService {
     }
 
 	@Override
-	public List<UserVo> selectUsersInfo() {
-		List<UserVo> userList = userDao.selectUsersInfo();
+	public List<UserVo> selectUsersInfo(String keyword) {
+		List<UserVo> userList = userDao.selectUsersInfo(keyword);
 		
 		return userList;
 	}

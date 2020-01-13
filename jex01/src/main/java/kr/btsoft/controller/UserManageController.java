@@ -60,9 +60,9 @@ public class UserManageController {
 	
 	@PostMapping(value = "/selectUsersInfo")
 	@ResponseBody
-	public JSONArray selectUsersInfo(String userid) {
+	public JSONArray selectUsersInfo(@RequestParam("keyword") String keyword) {
 
-		List<UserVo> userList = userService.selectUsersInfo();
+		List<UserVo> userList = userService.selectUsersInfo(keyword);
 		JSONArray jsonArr = new JSONArray();
 		
 		try {

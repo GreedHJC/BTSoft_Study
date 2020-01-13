@@ -37,10 +37,15 @@
 
     </select>
     
-    <select id="selectUsersInfo" resultType="kr.btsoft.vo.UserVo">
+    <select id="selectUsersInfo" parameterType="String" resultType="kr.btsoft.vo.UserVo">
 
         select INDEXNO, OFFICENUM, USERID, USERNAME, USERBIRTH, USERADDR, USERHP, OFFICETEL, JOINDAY, OUTDAY, GRADE, DEPART
-        from USER_INFO
+        from USER_INFO 
+        <where>
+	        <if test='value != null and value != ""'>
+	        USERNAME like '%${value}%'
+	        </if>
+        </where>
 
     </select>
 

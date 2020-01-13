@@ -38,11 +38,11 @@
         <div class="row">
           <div class="col-lg-12 mt">
           	<div class="form-inline">
-	          	<input type="text" placeholder="keyword" class="form-control"/>
-	          	<button type="button" class="btn btn-primary">검색</button>
-	            <button type="button" class="btn btn-default">등록</button>
-	            <button type="button" class="btn btn-default">수정</button>
-	            <button type="button" class="btn btn-default">승인</button>
+	          	<input type="text" id="keyword" placeholder="검색" class="form-control"/>
+	          	<button type="button" class="btn btn-primary" onclick="userDataSelect(2);">검색</button>
+	            <button type="button" class="btn btn-default" onclick="">등록</button>
+	            <button type="button" class="btn btn-default" onclick="">수정</button>
+	            <button type="button" class="btn btn-default" onclick="">승인</button>
           	</div>
           </div>
           <div class="col-lg-12 mt">
@@ -63,10 +63,17 @@
 	    var grid_data;
 	
 	    $(document).ready(function(){
+	    	userDataSelect(1);
+	    });
+	    
+	    function userDataSelect(type){
+	    	var keyword = $("#keyword").val();
+	    	
 	    	$.ajax({
 	    	    url: "selectUsersInfo", // 클라이언트가 요청을 보낼 서버의 URL 주소
 	    	    type: "POST",                             // HTTP 요청 방식(GET, POST)
 	    	    dataType: "json",                         // 서버에서 보내줄 데이터의 타입
+	    	    data:{"keyword":keyword},
 	    	    success:function(data) {
 	    	    	console.log(data);
 	    	    	grid_data = data;
@@ -76,10 +83,15 @@
 	    	    		grid_data[i]["OUTDAY"] = convertDateFormat(grid_data[i]["OUTDAY"]);
 	    	    	}
 	    	    	
-	    	    	createGrid();
+	    	    	if(type == 1){
+		    	    	createGrid();
+	    	    	}else{
+	    	    		datagrid.refresh();
+	    	    	}
+	    	    	
 	    	    }
 	    	});
-	    });
+	    }
 	     
 	    //그리드 선언
 	    function createGrid(){
