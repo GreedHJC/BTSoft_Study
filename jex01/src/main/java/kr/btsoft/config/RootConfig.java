@@ -31,10 +31,8 @@ import java.security.GeneralSecurityException;
 @EnableTransactionManagement
 @Configuration
 @MapperScan(basePackages = {"kr.btsoft.dao"})
-@ComponentScan(basePackages = {"kr.btsoft"}, excludeFilters = {@ComponentScan.Filter(type= FilterType.ANNOTATION, value={Controller.class, ControllerAdvice.class, Configuration.class})})
+@ComponentScan(basePackages = {"kr.btsoft"}, excludeFilters = {@ComponentScan.Filter(type= FilterType.ANNOTATION, value={Controller.class, ControllerAdvice.class})})
 public class RootConfig {
-
-
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -73,4 +71,5 @@ public class RootConfig {
     public PlatformTransactionManager transactionManager() throws URISyntaxException, GeneralSecurityException, ParseException, IOException {
         return new DataSourceTransactionManager(dataSource());
     }
+
 }

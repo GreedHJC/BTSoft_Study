@@ -40,48 +40,32 @@
             <version>${org.aspectj-version}</version>
         </dependency>
 
-        <!-- Logging -->
+        <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j-version}</version>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.21</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${org.slf4j-version}</version>
-            <scope>runtime</scope>
+            <version>1.7.21</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j-version}</version>
-            <scope>runtime</scope>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.7</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.mail</groupId>
-                    <artifactId>mail</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.jms</groupId>
-                    <artifactId>jms</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jdmk</groupId>
-                    <artifactId>jmxtools</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jmx</groupId>
-                    <artifactId>jmxri</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>runtime</scope>
-        </dependency> -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.1.7</version>
+        </dependency>
 
         <!-- @Inject -->
         <dependency>
@@ -171,12 +155,12 @@
             <version>1.16</version>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.oracle/ojdbc6 &ndash;&gt;
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-        </dependency>-->
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.oracle/ojdbc6 &ndash;&gt;
+                <dependency>
+                    <groupId>com.oracle</groupId>
+                    <artifactId>ojdbc6</artifactId>
+                    <version>11.2.0.4</version>
+                </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
         <dependency>
@@ -239,9 +223,9 @@
         </dependency>
 
         <dependency>
-        	<groupId>com.googlecode.json-simple</groupId>
-        	<artifactId>json-simple</artifactId>
-        	<version>1.1</version>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
         </dependency>
     </dependencies>
 
@@ -270,20 +254,20 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <artifactId>maven-eclipse-plugin</artifactId>-->
-<!--                <version>2.9</version>-->
-<!--                <configuration>-->
-<!--                    <additionalProjectnatures>-->
-<!--                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>-->
-<!--                    </additionalProjectnatures>-->
-<!--                    <additionalBuildcommands>-->
-<!--                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>-->
-<!--                    </additionalBuildcommands>-->
-<!--                    <downloadSources>true</downloadSources>-->
-<!--                    <downloadJavadocs>true</downloadJavadocs>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <artifactId>maven-eclipse-plugin</artifactId>-->
+            <!--                <version>2.9</version>-->
+            <!--                <configuration>-->
+            <!--                    <additionalProjectnatures>-->
+            <!--                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>-->
+            <!--                    </additionalProjectnatures>-->
+            <!--                    <additionalBuildcommands>-->
+            <!--                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>-->
+            <!--                    </additionalBuildcommands>-->
+            <!--                    <downloadSources>true</downloadSources>-->
+            <!--                    <downloadJavadocs>true</downloadJavadocs>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
