@@ -44,7 +44,7 @@
                     <span>휴가관리</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="">휴가신청</a></li>
+                    <li><a href="breakApply">휴가신청</a></li>
                 </ul>
                 <ul class="sub">
                     <li><a href="breakManage">휴가현황</a></li>
