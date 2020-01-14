@@ -49,20 +49,17 @@
 	        SBGridProperties.id = 'datagrid';
 	        SBGridProperties.jsonref = grid_data.result;
 	        SBGridProperties.columns = [
-	            {caption : ['사번'],               ref : 'OFFICENUM',        width : '20%',    style : 'text-align:center',    type : 'input'},
-	            {caption : ['신청일'],          ref : 'BREAKDAY',      width : '20%',   style : 'text-align:center',    type : 'input'},
-	            {caption : ['사유'],    ref : 'BREAKREASON',         width : '20%',   style : 'text-align:center',    type : 'input'},
-	            {caption : ['승인여부'],        ref : 'APPROVALXO',        width : '10%',   style : 'text-align:center',    type : 'input'},
-	            {caption : ['비고'],        ref : 'RETURNREASON',         width : '30%',   style : 'text-align:center',    type : 'input'}
+	            {caption : ['사번'],               ref : 'OFFICENUM',        width : '20%',    style : 'text-align:center',    type : 'output'},
+	            {caption : ['신청일'],          ref : 'BREAKDAY',      width : '20%',   style : 'text-align:center',    type : 'output'},
+	            {caption : ['사유'],    ref : 'BREAKREASON',         width : '20%',   style : 'text-align:center',    type : 'output'},
+	            {caption : ['승인여부'],        ref : 'APPROVALXO',        width : '10%',   style : 'text-align:center',    type : 'output'},
+	            {caption : ['비고'],        ref : 'RETURNREASON',         width : '30%',   style : 'text-align:center',    type : 'output'}
 	        ];
 	        datagrid = _SBGrid.create(SBGridProperties);
 	    };
 	    
 	    function setSBGridPropertiesCDC(){
 	    	var SBGridProperties = {};
-	    	SBGridProperties.parentid				= 'SBGridArea';
-	    	SBGridProperties.id						= 'datagrid';
-	    	SBGridProperties.jsonref				= 'grid_data';
 	    	SBGridProperties.height					= '300px';
 	    	SBGridProperties.rowheight				= '30';
 	    	SBGridProperties.emptyrecords 			= '조회내역없음';							//그리드내 데이터가 없을 때의 문구를 설정합니다.
