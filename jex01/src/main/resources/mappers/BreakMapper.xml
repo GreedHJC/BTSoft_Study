@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="kr.btsoft.dao.BreakDao">
+
+   <select id="selectUserBreak" parameterType="String" resultType="hashmap">
+		SELECT UI.OFFICENUM, BI.BREAKDAY, BI.BREAKREASON
+		, CASE WHEN BI.APPROVALXO IS NULL THEN '미승인'
+			 WHEN BI.APPROVALXO = '0' THEN '거절'
+			 WHEN BI.APPROVALXO = '1' THEN '승인'
+			 ELSE '오류'
+			 END APPROVALXO
+		, BI.RETURNREASON
+		FROM USER_INFO UI, BREAK_INFO BI
+		WHERE UI.OFFICENUM = #{OFFICENUM} 
+		AND BI.OFFICENUM = UI.OFFICENUM
+   </select>
+   
+   <select id="selectAllBreak" resultType="hashmap">
+		SELECT UI.OFFICENUM, UI.USERNAME, BI.BREAKDAY, BI.BREAKREASON
+		, CASE WHEN BI.APPROVALXO IS NULL THEN '미승인'
+			 WHEN BI.APPROVALXO = '0' THEN '거절'
+			 WHEN BI.APPROVALXO = '1' THEN '승인'
+			 ELSE '오류'
+			 END APPROVALXO
+		, BI.RETURNREASON
+		FROM USER_INFO UI, BREAK_INFO BI
+		WHERE BI.OFFICENUM = UI.OFFICENUM
+		ORDER BY BI.INDEXNO DESC
+   </select>
+   
+   <insert id="insertBreakApply" parameterType="hashmap">
+		INSERT BREAK_INFO(INDEXNO, OFFICENUM, BREAKDAY, BREAKREASON, APPROVALXO) 
+		VALUES(BREAK_NO_SEQ.NEXTVAL, #{OFFICENUM}, #{BREAKDAY}, #{BREAKREASON}, 0)
+   </insert>
+   
+   <select id="selectBreakDay" parameterType="String" resultType="hashmap">
+		SELECT JOINDAY, GRADE
+		FROM USER_INFO
+		WHERE OFFICENUM = #{OFFICENUM}
+   </select>
+
+</mapper>

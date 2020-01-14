@@ -34,24 +34,20 @@
     <!-- Custom styles for this template -->
     <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/style-responsive.css" rel="stylesheet">
-    
+    <script src="/resources/js/dist/jquery/jquery.min.js"></script>
     <script type="text/javascript">
 	    var datagrid;
-	    var grid_data = [			//예시자료(임시)
-            {"OFFICENUM":"191028001", "BREAKDAY":"2020/01/09", "BREAKREASON":"개인사정", "APPROVALXO":"승인","RETURNREASON":" "},
-            {"OFFICENUM":"191028001", "BREAKDAY":"2020/01/10", "BREAKREASON":"개인사정", "APPROVALXO":"미승인","RETURNREASON":" "},
-            {"OFFICENUM":"191028001", "BREAKDAY":"2020/01/11", "BREAKREASON":"개인사정", "APPROVALXO":"반려","RETURNREASON":"주말이다."}];
-            
-	    
+	    var grid_data = {};
 	    $(document).ready(function(){
 	        createGrid();
 	    });
 	    
 	    function createGrid(){
+	    	grid_data.result = JSON.parse('${resultMap}');
 	    	var SBGridProperties = setSBGridPropertiesCDC();
 	        SBGridProperties.parentid = 'SBGridArea';
 	        SBGridProperties.id = 'datagrid';
-	        SBGridProperties.jsonref = 'grid_data';
+	        SBGridProperties.jsonref = grid_data.result;
 	        SBGridProperties.columns = [
 	            {caption : ['사번'],               ref : 'OFFICENUM',        width : '20%',    style : 'text-align:center',    type : 'input'},
 	            {caption : ['신청일'],          ref : 'BREAKDAY',      width : '20%',   style : 'text-align:center',    type : 'input'},
@@ -66,7 +62,7 @@
 	    	var SBGridProperties = {};
 	    	SBGridProperties.parentid				= 'SBGridArea';
 	    	SBGridProperties.id						= 'datagrid';
-	    	SBGridProperties.jsonref				= 'eval1.resultList';
+	    	SBGridProperties.jsonref				= 'grid_data';
 	    	SBGridProperties.height					= '300px';
 	    	SBGridProperties.rowheight				= '30';
 	    	SBGridProperties.emptyrecords 			= '조회내역없음';							//그리드내 데이터가 없을 때의 문구를 설정합니다.
@@ -97,7 +93,7 @@
         <div class="row mt">
           <div class="col-lg-12">
           	휴가 현황<br>
-          	생성 ${resultMap.TOTALDAYS}일   사용 ${resultMap.COUNT}일   잔여 ${resultMap.TOTALDAYS - resultMap.COUNT}일
+          	생성 <%-- ${resultMap.TOTALDAYS} --%>일   사용 <%-- ${resultMap.COUNT} --%>일   잔여 <%--  ${resultMap.TOTALDAYS - resultMap.COUNT} --%>일
             <div id="SBGridArea" style="width:100%; height:300px;"></div>
             <div align="right"><br><input type="button" value="휴가신청" onclick="moveApply()"/></div>
           </div>
@@ -111,7 +107,7 @@
     <!-- FOOTER MENU END -->
     
     <!-- js placed at the end of the document so the pages load faster -->
-	<script src="/resources/js/dist/jquery/jquery.min.js"></script>
+	
 	
 	<script src="/resources/js/dist/bootstrap/js/bootstrap.min.js"></script>
 	<script class="include" type="text/javascript" src="/resources/js/dist/jquery.dcjqaccordion.2.7.js"></script>
